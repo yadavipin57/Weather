@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
     <title>Weather App</title>
 </head>
 
@@ -18,8 +19,12 @@
             </div>
         </form>
 
+        <div class="error">
+            <p class=".error-msg">Make sure the city name is correct</p>
+        </div>
+
         <div class="weather">
-            <img src="./images/rain.png" class="weather-icon">
+            <img src="" class="weather-img">
             <h1 class="temp"></h1>
             <h2 class="city"></h2>
             <div class="details">
@@ -27,14 +32,14 @@
                     <img src="./images/humidity.png">
                     <div>
                         <p class="humidity">%</p>
-                        <p></p>
+                        <p class="humidity-name">Humidity</p>
                     </div>
                 </div>
                 <div class="col">
                     <img src="./images/wind.png">
                     <div>
-                        <p class="Wind">15 km/h</p>
-                        <p>Wind Speed</p>
+                        <p class="wind"></p>
+                        <p class="wind-name">Wind Speed</p>
                     </div>
                 </div>
             </div>

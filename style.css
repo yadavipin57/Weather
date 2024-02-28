@@ -54,7 +54,18 @@ body {
     width: 24px;
 }
 
-.weather-icon{
+.error{
+    padding: 10px;
+    display: none;
+    text-align: left;
+    font-weight: 100;
+    font-size: 24px;
+}
+.weather{
+    display: none;
+}
+
+.weather-img{
     margin: 30px 0 0 0;
     width: 170px;
 }

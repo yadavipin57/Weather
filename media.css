@@ -1,0 +1,69 @@
+@media screen and (max-width: 500px) {
+    .card{
+        margin: none;
+        padding: 20px 12px;
+        width: 100%;
+    }
+    .search input{
+        margin-right: 6px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .search button{
+        width: 40px;
+        height: 40px;
+    }
+    .search button img{
+        width: 16px;
+    }
+
+    .weather-img{
+        margin: 16px 0 0 0;
+        width: 120px;
+    }
+    .weather h1{
+        font-size: 48px;
+    }
+    .weather h2{
+        font-size: 20px;
+    }
+    .col img{
+        width: 24px;
+    }
+    .humidity, .wind{
+        font-size: 24px;
+    }
+    .humidity-name, .wind-name{
+        font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 320px){
+
+    .search input{
+        height: 30px;
+    }
+    .search button{
+        width: 30px;
+        height: 30px;
+    }
+
+    .weather h1{
+        font-size: 48px;
+    }
+    .weather h2{
+        font-size: 20px;
+    }
+    .col img{
+        width: 18px;
+    }
+    .humidity, .wind{
+        font-size: 18px;
+    }
+    .humidity-name, .wind-name{
+        font-size: 12px;
+    }
+
+  }
