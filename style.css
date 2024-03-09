@@ -10,10 +10,9 @@ body {
 }
 
 .card {
-    margin: 100px auto 0;
+    margin: 5vh auto 0;
     padding: 40px 35px;
-    width: 90%;
-    max-width: 500px;
+    width: 90vw;
     background: linear-gradient(135deg, #00feba, #5f548a);
     color: #fff;
     border-radius: 20px;
@@ -24,7 +23,8 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    gap: 12px;
 }
 
 .search input {
@@ -40,18 +40,30 @@ body {
     font-size: 18px;
 }
 
-.search button{
+.search-button{
     border: none;
     outline: none;
     background: #ebfffc;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
 .search button img{
     width: 24px;
+}
+
+.degree, .search p{
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #ebfffc;
+}
+.degree:hover{
+    color: #dcf0ed;
 }
 
 .error{

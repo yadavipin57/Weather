@@ -1,10 +1,12 @@
 const apiKey = '98ad2f2a977e40544e9730c01523aa3e';
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='
+let apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='
+// https://api.openweathermap.org/data/2.5/weather?units=imperial&q=Mumbai&appid=98ad2f2a977e40544e9730c01523aa3e
 
 const form = document.querySelector('form')
 const inputField = document.querySelector('.search input')
 const searchButton = document.querySelector('.search button')
 const errorDiv = document.querySelector('.error')
+const cityTime = document.querySelector('.city-time')
 const weather = document.querySelector('.weather')
 
 const weatherImg = document.querySelector('.weather-img')
@@ -13,9 +15,35 @@ const city = document.querySelector('.city')
 const humidity = document.querySelector('.humidity')
 const wind = document.querySelector('.wind')
 
-const cityName = inputField.value
+const metric = document.querySelector('.metric')
+const imperial = document.querySelector('.imperial')
 
-async function checkWeather(cityName){
+let tempUnit;
+
+let selectedUnit = 'metric' // default
+
+metric.addEventListener('click', (e)=>{
+    e.preventDefault()
+    selectedUnit = 'metric'
+    tempUnit = '°C'
+    apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=${selectedUnit}&q=`
+    console.log(apiUrl)
+})
+
+imperial.addEventListener('click', (e)=>{
+    e.preventDefault()
+    selectedUnit = 'imperial'
+    tempUnit = '°F'
+    apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=${selectedUnit}&q=`
+    console.log(apiUrl)
+})
+
+const currentTime = new Date()
+cityTime.innerHTML = `${currentTime.toDateString()} | Local Time: ${currentTime.toLocaleTimeString()}`
+
+async function checkWeather(){
+    const cityName = inputField.value
+    console.log(cityName)
     const response = await fetch(apiUrl + cityName + `&appid=${apiKey}`);
 
     if(response.status == 404){
@@ -39,7 +67,7 @@ async function checkWeather(cityName){
             weatherImg.src = `./images/snow.png`
         }
 
-        temp.innerHTML = Math.round(data.main.temp) + `°C`
+        temp.innerHTML = Math.round(data.main.temp) + `${tempUnit}`
         city.innerHTML = data.name + ", " + data.sys.country
         humidity.innerHTML = data.main.humidity +`%`
         wind.innerHTML = data.wind.speed +` km/h`
@@ -53,19 +81,10 @@ async function checkWeather(cityName){
     console.log(data.main.temp)
 }
 
-searchButton.addEventListener('click', (e)=>{
-    e.preventDefault()
-    weather.style.display = 'block'
-    checkWeather(inputField.value)
-})
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    checkWeather();
+});
 
-
-
-
-
-
-
-
-
-
-
+  
+  

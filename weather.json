@@ -1,43 +1,88 @@
+// METRIC
 {
-    "coord": {
-      "lon": 72.8479,
-      "lat": 19.0144
-    },
-    "weather": [
-      {
-        "id": 711,
-        "main": "Smoke",
-        "description": "smoke",
-        "icon": "50d"
-      }
-    ],
-    "base": "stations",
-    "main": {
-      "temp": 304.14,
-      "feels_like": 302.31,
-      "temp_min": 302.09,
-      "temp_max": 304.14,
-      "pressure": 1014,
-      "humidity": 22
-    },
-    "visibility": 2500,
-    "wind": {
-      "speed": 2.57,
-      "deg": 310
-    },
-    "clouds": {
-      "all": 1
-    },
-    "dt": 1709873860,
-    "sys": {
-      "type": 1,
-      "id": 9052,
-      "country": "IN",
-      "sunrise": 1709860956,
-      "sunset": 1709903783
-    },
-    "timezone": 19800,
-    "id": 1275339,
-    "name": "Mumbai",
-    "cod": 200
-  }
+  "coord": {
+    "lon": 72.8479,
+    "lat": 19.0144
+  },
+  "weather": [
+    {
+      "id": 711,
+      "main": "Smoke",
+      "description": "smoke",
+      "icon": "50d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 304.14,
+    "feels_like": 302.31,
+    "temp_min": 302.09,
+    "temp_max": 304.14,
+    "pressure": 1014,
+    "humidity": 22
+  },
+  "visibility": 2500,
+  "wind": {
+    "speed": 2.57,
+    "deg": 310
+  },
+  "clouds": {
+    "all": 1
+  },
+  "dt": 1709873860,
+  "sys": {
+    "type": 1,
+    "id": 9052,
+    "country": "IN",
+    "sunrise": 1709860956,
+    "sunset": 1709903783
+  },
+  "timezone": 19800,
+  "id": 1275339,
+  "name": "Mumbai",
+  "cod": 200
+}
+// IMPERIAL
+{
+  "coord": {
+    "lon": 72.8479,
+    "lat": 19.0144
+  },
+  "weather": [
+    {
+      "id": 711,
+      "main": "Smoke",
+      "description": "smoke",
+      "icon": "50d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 84.18,
+    "feels_like": 82.38,
+    "temp_min": 82.29,
+    "temp_max": 84.18,
+    "pressure": 1014,
+    "humidity": 32
+  },
+  "visibility": 2200,
+  "wind": {
+    "speed": 0,
+    "deg": 0
+  },
+  "clouds": {
+    "all": 5
+  },
+  "dt": 1709957793,
+  "sys": {
+    "type": 1,
+    "id": 9052,
+    "country": "IN",
+    "sunrise": 1709947308,
+    "sunset": 1709990200
+  },
+  "timezone": 19800,
+  "id": 1275339,
+  "name": "Mumbai",
+  "cod": 200
+}
