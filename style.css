@@ -54,6 +54,14 @@ body {
     width: 24px;
 }
 
+.degree-buttons{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+.metric{
+    border-bottom: 2px solid #ebfffc;
+}
 .degree, .search p{
     font-size: 1.5rem;
     background-color: transparent;
@@ -75,6 +83,8 @@ body {
 }
 .weather{
     display: none;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .weather-img{
@@ -97,22 +107,27 @@ body {
     margin: 50px 0 0 0;
     padding: 0 20px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
 }
 
 .col{
+    /* width: 30%; */
     display: flex;
     align-items: center;
     text-align: left;
 }
 
-.col img{
+.col img, .col .fa-compass{
     margin: 0 10px 0 0;
     width: 40px;
 }
+.fa-compass{
+    font-size: 40px;
+}
 
-.humidity, .wind{
+.humidity, .wind, .coordinates{
     margin: -6px 0 0 0;
     font-size: 28px;
 }
