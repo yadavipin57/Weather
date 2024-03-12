@@ -103,20 +103,12 @@ body {
     font-weight: 400;
 }
 
-.fahrenheit{
-    display: none;
-}
-
-.temp-details{
-    margin: 12px 0 0 0;
+.metric-temp-details, .imperial-temp-details{
+    margin: 10px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 16px;
-}
-
-.feels-like-fahrenheit, .temp-min-fahrenheit, .temp-max-fahrenheit{
-    display: none;
 }
 
 .details{

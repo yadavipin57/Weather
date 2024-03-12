@@ -11,18 +11,9 @@ const cityTime = document.querySelector('.city-time')
 const weather = document.querySelector('.weather')
 
 const weatherImg = document.querySelector('.weather-img')
-
-const celsius = document.querySelector('.celsius')
-const fahrenheit = document.querySelector('.fahrenheit')
-
+const metricTemp = document.querySelector('.metric-temp')
+const imperialTemp = document.querySelector('.imperial-temp')
 const city = document.querySelector('.city')
-
-const feelsLike = document.querySelector('.feels-like')
-const tempMin = document.querySelector('.temp-min')
-const tempMax = document.querySelector('.temp-max')
-const feelsLikeFahrenheit = document.querySelectorAll('.feels-like-fahrenheit')
-const tempMinFahrenheit = document.querySelectorAll('.temp-min-fahrenheit')
-const tempMaxFahrenheit = document.querySelectorAll('.temp-max-fahrenheit')
 
 const humidity = document.querySelector('.humidity')
 const wind = document.querySelector('.wind')
@@ -59,11 +50,8 @@ async function checkWeather() {
             weatherImg.src = `./images/snow.png`
         }
 
-        celsius.innerHTML = Math.round(data.main.temp) + `°C` // default
+        metricTemp.innerHTML = Math.round(data.main.temp) + `°C` // default
         city.innerHTML = data.name + ", " + data.sys.country
-        feelsLike.innerHTML = Math.round(data.main.feels_like) + `°C`
-        tempMin.innerHTML = Math.round(data.main.temp_min) + `°C`
-        tempMax.innerHTML = Math.round(data.main.temp_max) + `°C`
         humidity.innerHTML = data.main.humidity + `%`
         wind.innerHTML = data.wind.speed + ` km/h`
         coordinates.innerHTML = data.coord.lon.toFixed(2) + 'E' + ' ' + data.coord.lat.toFixed(2) + 'N'
@@ -72,27 +60,52 @@ async function checkWeather() {
         errorDiv.style.display = 'none'
         weather.style.display = 'flex'
 
+        const metric = document.querySelector('.metric')
+        const imperial = document.querySelector('.imperial')
+
+        const metricTempDetails = document.querySelector('.metric-temp-details')
+        const imperialTempDetails = document.querySelector('.imperial-temp-details')
+
+        metricTempDetails.innerHTML = `
+                                <div class="temp-row">
+                                <p class="feels-like">Feels Like</p>
+                                <p>${Math.round(data.main.feels_like)}°C</p>
+                                </div>
+                                 <div class="temp-row">
+                                <p class="temp-min">Min Temp</p>
+                                <p>${Math.round(data.main.temp_min)}°C</p>
+                                </div>
+                                <div class="temp-row">
+                                <p class="temp-max">Max Temp</p>
+                                <p>${Math.round(data.main.temp_max)}°C</p>
+                                </div>
+                                `
+
         imperial.addEventListener('click', () => {
-            celsius.style.display = 'none'
-            feelsLike.style.display = 'none'
-            tempMin.style.display = 'none'
-            tempMax.style.display = 'none'
-            fahrenheit.style.display = 'block'
-            feelsLikeFahrenheit.display = 'block'
-            tempMinFahrenheit.display = 'block'
-            tempMaxFahrenheit.display = 'block'
-            fahrenheit.innerHTML = Math.round(((9 * data.main.temp) / 5) + 32) + `°F`
-            feelsLikeFahrenheit.innerHTML = Math.round(((9 * data.main.feels_like) / 5) + 32) + `°F`
-            tempMinFahrenheit.innerHTML = Math.round(((9 * data.main.temp_min) / 5) + 32) + `°F`
-            tempMaxFahrenheit.innerHTML = Math.round(((9 * data.main.temp_max) / 5) + 32) + `°F`
+            metricTemp.style.display = 'none'
+            metricTempDetails.style.display = 'none'
+            imperialTemp.innerHTML = Math.round(((9 * data.main.temp) / 5) + 32) + `°F`
+            imperialTempDetails.innerHTML = `
+                                                <div class="temp-row">
+                                                <p class="feels-like">Feels Like</p>
+                                                <p>${Math.round(((9 * data.main.feels_like) / 5) + 32)}°F</p>
+                                                </div>
+                                                <div class="temp-row">
+                                                <p class="temp-min">Min Temp</p>
+                                                <p>${Math.round(((9 * data.main.temp_min) / 5) + 32)}°F</p>
+                                                </div>
+                                                <div class="temp-row">
+                                                <p class="temp-max">Max Temp</p>
+                                                <p>${Math.round(((9 * data.main.temp_max) / 5) + 32)}°F</p>
+                                                </div>
+                                            `
         })
 
-        metric.addEventListener('click', () => {
-            celsius.style.display = 'block'
-            fahrenheit.style.display = 'none'
-            feelsLikeFahrenheit.display = 'none'
-            tempMinFahrenheit.display = 'none'
-            tempMaxFahrenheit.display = 'none'
+        metric.addEventListener('click', ()=>{
+            imperialTemp.style.display = 'none'
+            imperialTempDetails.style.display = 'none'
+            metricTemp.style.display = 'block'
+            metricTempDetails.style.display = 'flex'
         })
 
     }
