@@ -103,6 +103,22 @@ body {
     font-weight: 400;
 }
 
+.fahrenheit{
+    display: none;
+}
+
+.temp-details{
+    margin: 12px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+}
+
+.feels-like-fahrenheit, .temp-min-fahrenheit, .temp-max-fahrenheit{
+    display: none;
+}
+
 .details{
     margin: 50px 0 0 0;
     padding: 0 20px;
@@ -119,15 +135,15 @@ body {
     text-align: left;
 }
 
-.col img, .col .fa-compass{
+.col img, .col .fa-compass, .fa-gauge{
     margin: 0 10px 0 0;
     width: 40px;
 }
-.fa-compass{
+.fa-compass, .fa-gauge{
     font-size: 40px;
 }
 
-.humidity, .wind, .coordinates{
+.humidity, .wind, .coordinates, .pressure{
     margin: -6px 0 0 0;
     font-size: 28px;
 }

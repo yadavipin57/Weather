@@ -21,7 +21,7 @@
                 <button class="search-button"><img src="./images/search.png" alt="Seach icon"></button>
                 <div class="degree-buttons">
                     <button class="degree metric">°C</button>
-                     <p>|</p>
+                    <p>|</p>
                     <button class="degree imperial">°F</button>
                 </div>
             </div>
@@ -36,8 +36,26 @@
         <div class="weather">
             <div class="city-details">
                 <img src="" class="weather-img">
-                <h1 class="temp"></h1>
+                <h1 class="temp celsius"></h1>
+                <h1 class="temp fahrenheit"></h1>
                 <h2 class="city"></h2>
+                <div class="temp-details">
+                    <div class="temp-col">
+                        <p>Feels Like</p>
+                        <p class="feels-like"></p>
+                        <p class="feels-like-fahrenheit"></p>
+                    </div>
+                    <div class="temp-col">
+                        <p>Minimum Temp</p>
+                        <p class="temp-min"></p>
+                        <p class="temp-min-fahrenheit"></p>
+                    </div>
+                    <div class="temp-col">
+                        <p>Maximum temp</p>
+                        <p class="temp-max"></p>
+                        <p class="temp-max-fahrenheit"></p>
+                    </div>
+                </div>
             </div>
             <div class="details">
                 <div class="col">
@@ -59,6 +77,13 @@
                     <div>
                         <p class="coordinates"></p>
                         <p class="cooordinate-name">Coordinates</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <i class="fa-solid fa-gauge"></i>
+                    <div>
+                        <p class="pressure"></p>
+                        <p class="pressure-name">Pressure</p>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,6 @@ const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='
 
 const form = document.querySelector('form')
 const inputField = document.querySelector('.search input')
-const searchButton = document.querySelector('.search button')
 const metric = document.querySelector('.metric')
 const imperial = document.querySelector('.imperial')
 const errorDiv = document.querySelector('.error')
@@ -12,11 +11,23 @@ const cityTime = document.querySelector('.city-time')
 const weather = document.querySelector('.weather')
 
 const weatherImg = document.querySelector('.weather-img')
-const temp = document.querySelector('.temp')
+
+const celsius = document.querySelector('.celsius')
+const fahrenheit = document.querySelector('.fahrenheit')
+
 const city = document.querySelector('.city')
+
+const feelsLike = document.querySelector('.feels-like')
+const tempMin = document.querySelector('.temp-min')
+const tempMax = document.querySelector('.temp-max')
+const feelsLikeFahrenheit = document.querySelectorAll('.feels-like-fahrenheit')
+const tempMinFahrenheit = document.querySelectorAll('.temp-min-fahrenheit')
+const tempMaxFahrenheit = document.querySelectorAll('.temp-max-fahrenheit')
+
 const humidity = document.querySelector('.humidity')
 const wind = document.querySelector('.wind')
 const coordinates = document.querySelector('.coordinates')
+const pressure = document.querySelector('.pressure')
 
 const currentTime = new Date()
 cityTime.innerHTML = `${currentTime.toDateString()} | Indian Standard Time : ${currentTime.toLocaleTimeString()}`
@@ -25,7 +36,6 @@ cityTime.innerHTML = `${currentTime.toDateString()} | Indian Standard Time : ${c
 
 async function checkWeather() {
     const cityName = inputField.value
-    console.log(cityName)
     const response = await fetch(apiUrl + cityName + `&appid=${apiKey}`);
 
     if (response.status == 404) {
@@ -49,32 +59,43 @@ async function checkWeather() {
             weatherImg.src = `./images/snow.png`
         }
 
-        temp.innerHTML = Math.round(data.main.temp) + `°C` // default
-
-        const degreeButtons = document.querySelectorAll('.degree-buttons')
-
-        degreeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.classList.contains('metric')) {
-                    temp.innerHTML = Math.round(data.main.temp) + `°C`
-                } else if (button.classList.contains('imperial')) {
-                    temp.innerHTML = Math.round((9 * data.main.temp) / 5 + 32) + `°F`
-                }
-            })
-        });
-
+        celsius.innerHTML = Math.round(data.main.temp) + `°C` // default
         city.innerHTML = data.name + ", " + data.sys.country
+        feelsLike.innerHTML = Math.round(data.main.feels_like) + `°C`
+        tempMin.innerHTML = Math.round(data.main.temp_min) + `°C`
+        tempMax.innerHTML = Math.round(data.main.temp_max) + `°C`
         humidity.innerHTML = data.main.humidity + `%`
         wind.innerHTML = data.wind.speed + ` km/h`
         coordinates.innerHTML = data.coord.lon.toFixed(2) + 'E' + ' ' + data.coord.lat.toFixed(2) + 'N'
+        pressure.innerHTML = data.main.pressure + ' ' + `millibar`
 
         errorDiv.style.display = 'none'
         weather.style.display = 'flex'
+
+        imperial.addEventListener('click', () => {
+            celsius.style.display = 'none'
+            feelsLike.style.display = 'none'
+            tempMin.style.display = 'none'
+            tempMax.style.display = 'none'
+            fahrenheit.style.display = 'block'
+            feelsLikeFahrenheit.display = 'block'
+            tempMinFahrenheit.display = 'block'
+            tempMaxFahrenheit.display = 'block'
+            fahrenheit.innerHTML = Math.round(((9 * data.main.temp) / 5) + 32) + `°F`
+            feelsLikeFahrenheit.innerHTML = Math.round(((9 * data.main.feels_like) / 5) + 32) + `°F`
+            tempMinFahrenheit.innerHTML = Math.round(((9 * data.main.temp_min) / 5) + 32) + `°F`
+            tempMaxFahrenheit.innerHTML = Math.round(((9 * data.main.temp_max) / 5) + 32) + `°F`
+        })
+
+        metric.addEventListener('click', () => {
+            celsius.style.display = 'block'
+            fahrenheit.style.display = 'none'
+            feelsLikeFahrenheit.display = 'none'
+            tempMinFahrenheit.display = 'none'
+            tempMaxFahrenheit.display = 'none'
+        })
+
     }
-
-
-    console.log(data)
-    console.log(data.main.temp)
 }
 
 form.addEventListener('submit', (e) => {
