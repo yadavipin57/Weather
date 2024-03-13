@@ -1,4 +1,4 @@
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 680px) {
     .card{
         margin: none;
         padding: 20px 12px;
@@ -6,36 +6,60 @@
     }
     .search input{
         margin-right: 6px;
-        padding: 6px 12px;
         border-radius: 20px;
-        height: 40px;
+        height: 36px;
         font-size: 16px;
     }
     .search button{
-        width: 40px;
-        height: 40px;
+        width: 25px;
+        height: 25px;
     }
     .search button img{
-        width: 16px;
+        width: 14px;
     }
 
     .weather-img{
-        margin: 16px 0 0 0;
-        width: 120px;
+        width: 90px;
     }
     .weather h1{
         font-size: 48px;
     }
     .weather h2{
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .city-details{
+        margin: -32px 0 0 0;
+    }
+    .metric-temp-details, .imperial-temp-details{
+        display: block;
+    }
+    .temp-row{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .col{
+        /* width: 30%; */
+        display: flex;
+        align-items: center;
+        text-align: left;
     }
     .col img{
         width: 24px;
     }
-    .humidity, .wind{
+    .fa-compass, .fa-gauge{
         font-size: 24px;
+        width: 24px;
+        border: 1px solid red;
     }
-    .humidity-name, .wind-name{
+    .humidity, .wind, .coordinates, .pressure{
+        font-size: 18px;
+        border: 1px solid red;
+    }
+    .humidity-name, .wind-name, .cooordinate-name, .pressure-name{
         font-size: 18px;
     }
   }

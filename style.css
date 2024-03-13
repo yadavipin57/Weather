@@ -60,7 +60,7 @@ body {
     /* justify-content: space-between; */
 }
 .metric{
-    border-bottom: 2px solid #ebfffc;
+    border-right: 2px solid #ebfffc;
 }
 .degree, .search p{
     font-size: 1.5rem;
@@ -103,12 +103,15 @@ body {
     font-weight: 400;
 }
 
-.metric-temp-details, .imperial-temp-details{
+.metric-temp-details{
     margin: 10px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 16px;
+}
+.imperial-temp, .imperial-temp-details{
+    display: none;
 }
 
 .details{
