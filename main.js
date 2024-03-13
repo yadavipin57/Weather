@@ -3,7 +3,7 @@ const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='
 // https://api.openweathermap.org/data/2.5/weather?units=imperial&q=Mumbai&appid=98ad2f2a977e40544e9730c01523aa3e
 
 const form = document.querySelector('form')
-const inputField = document.querySelector('.search input')
+const inputField = document.querySelector('.search-input')
 const metric = document.querySelector('.metric')
 const imperial = document.querySelector('.imperial')
 const errorDiv = document.querySelector('.error')
@@ -23,8 +23,11 @@ const wind = document.querySelector('.wind')
 const coordinates = document.querySelector('.coordinates')
 const pressure = document.querySelector('.pressure')
 
-const currentTime = new Date()
-cityTime.innerHTML = `${currentTime.toDateString()} | Indian Standard Time : ${currentTime.toLocaleTimeString()}`
+
+setInterval(() => {
+    const currentTime = new Date()
+    cityTime.innerHTML = `${currentTime.toDateString()} | Indian Standard Time : ${currentTime.toLocaleTimeString()}`
+}, 1000);
 
 
 
@@ -69,27 +72,28 @@ async function checkWeather() {
             console.log(data)
             metricTemp.style.display = 'none'
             metricTempDetails.style.display = 'none'
-            
+
             imperialTemp.style.display = 'block'
             imperialTempDetails.style.display = 'flex'
 
-            document.querySelector('.temp-1').innerHTML = `${Math.round(((9 * data.main.feels_like) / 5) + 32)}°F`
-            document.querySelector('.temp-2').innerHTML = `${Math.round(((9 * data.main.feels_min) / 5) + 32)}°F`
-            document.querySelector('.temp-3').innerHTML = `${Math.round(((9 * data.main.feels_max) / 5) + 32)}°F`
         })
-        
+        metricTempDetails.querySelector('.temp-1').innerHTML = `${Math.round(((9 * Number(data.main.feels_like)) / 5) + 32)}°F`
+        metricTempDetails.querySelector('.temp-2').innerHTML = `${Math.round(((9 * Number(data.main.temp_min)) / 5) + 32)}°F`
+        metricTempDetails.querySelector('.temp-3').innerHTML = `${Math.round(((9 * Number(data.main.temp_max)) / 5) + 32)}°F`
+
         metric.addEventListener('click', () => {
+
             console.log(data)
             imperialTemp.style.display = 'none'
             imperialTempDetails.style.display = 'none'
 
             metricTemp.style.display = 'block'
             metricTempDetails.style.display = 'flex'
-
-            document.querySelector('.temp-1').innerHTML = `${Math.round(data.main.feels_like)}°C`
-            document.querySelector('.temp-2').innerHTML = `${Math.round(data.main.temp_min)}°C`
-            document.querySelector('.temp-3').innerHTML = `${Math.round(data.main.temp_max)}°C`
         })
+
+        imperialTempDetails.querySelector('.temp-1').innerHTML = `${Math.round(data.main.feels_like)}°C`
+        imperialTempDetails.querySelector('.temp-2').innerHTML = `${Math.round(data.main.temp_min)}°C`
+        imperialTempDetails.querySelector('.temp-3').innerHTML = `${Math.round(data.main.temp_max)}°C`
 
     }
 }
