@@ -18,6 +18,7 @@
         <form>
             <div class="search">
                 <input class="search-input" type="text" placeholder="Search City" spellcheck="false">
+                <i class="fa-solid fa-xmark"></i>
                 <button class="search-button"><img src="./images/search.png" alt="Seach icon"></button>
                 <div class="degree-buttons">
                     <button class="degree metric">°C</button>
@@ -35,10 +36,12 @@
 
         <div class="weather">
             <div class="city-details">
-                <img src="" class="weather-img">
-                <h1 class="metric-temp"></h1>
-                <h1 class="imperial-temp"></h1>
-                <h2 class="city"></h2>
+                <div class="main-temp">
+                    <img src="" class="weather-img">
+                    <h1 class="metric-temp"></h1>
+                    <h1 class="imperial-temp"></h1>
+                    <h2 class="city"></h2>
+                </div>
 
                 <div class="metric-temp-details">
                     <div class="temp-row">
@@ -90,7 +93,7 @@
                     <i class="fa-regular fa-compass"></i>
                     <div>
                         <p class="coordinates"></p>
-                        <p class="cooordinate-name">Coordinates</p>
+                        <p class="coordinate-name">Coordinates</p>
                     </div>
                 </div>
                 <div class="col">
@@ -103,8 +106,6 @@
             </div>
         </div>
     </div>
-
-
 </body>
 <script src="main.js"></script>
 

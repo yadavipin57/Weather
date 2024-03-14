@@ -1,93 +1,280 @@
-@media screen and (max-width: 680px) {
-    .card{
+@media screen and (max-width: 720px) {
+    .card {
         margin: none;
         padding: 20px 12px;
         width: 100%;
     }
-    .search input{
+
+    .search input {
         margin-right: 6px;
         border-radius: 20px;
         height: 36px;
         font-size: 16px;
     }
-    .search button{
+
+    .search button {
         width: 25px;
         height: 25px;
     }
-    .search button img{
+
+    .search button img {
         width: 14px;
     }
 
-    .weather-img{
+    .weather-img {
         width: 90px;
     }
-    .weather h1{
-        font-size: 48px;
-    }
-    .weather h2{
-        font-size: 18px;
+
+    .weather h1 {
+        font-size: 64px;
     }
 
-    .city-details{
-        margin: -32px 0 0 0;
-    }
-    .metric-temp-details, .imperial-temp-details{
-        display: block;
-    }
-    .temp-row{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
+    .weather h2 {
+        font-size: 28px;
     }
 
-    .col{
+    .city-details {
+        margin: -48px 0 0 0;
+    }
+
+    .col {
         /* width: 30%; */
         display: flex;
         align-items: center;
         text-align: left;
     }
-    .col img{
-        width: 24px;
+
+    .col img {
+        width: 36px;
     }
-    .fa-compass, .fa-gauge{
+
+    .fa-compass,
+    .fa-gauge {
+        font-size: 36px;
+        width: 36px;
+    }
+
+    .humidity,
+    .wind,
+    .coordinates,
+    .pressure {
         font-size: 24px;
-        width: 24px;
-        border: 1px solid red;
     }
-    .humidity, .wind, .coordinates, .pressure{
-        font-size: 18px;
-        border: 1px solid red;
-    }
-    .humidity-name, .wind-name, .cooordinate-name, .pressure-name{
-        font-size: 18px;
-    }
-  }
 
-  @media screen and (max-width: 320px){
+    .humidity-name,
+    .wind-name,
+    .cooordinate-name,
+    .pressure-name {
+        font-size: 24px;
+    }
+}
 
-    .search input{
+@media screen and (max-width: 540px) {
+
+    .search input {
         height: 30px;
     }
-    .search button{
+
+    .search button {
         width: 30px;
         height: 30px;
     }
 
-    .weather h1{
+    .weather h1 {
         font-size: 48px;
     }
-    .weather h2{
+
+    .weather h2 {
         font-size: 20px;
     }
-    .col img{
+
+    .col img {
         width: 18px;
     }
-    .humidity, .wind{
+
+    .fa-compass,
+    .fa-gauge {
+        font-size: 18px;
+        width: 18px;
+    }
+
+    .humidity,
+    .wind,
+    .coordinates,
+    .pressure {
         font-size: 18px;
     }
-    .humidity-name, .wind-name{
+
+    .humidity-name,
+    .wind-name,
+    .coordinate-name,
+    .pressure-name {
         font-size: 12px;
     }
 
-  }
+}
+
+@media screen and (max-width: 460px) {
+
+    .search{
+        display: flex;
+        gap: 0px;
+    }
+
+    .search input {
+        min-width: 120px;
+        height: 30px;
+    }
+
+    .search input {
+        height: 30px;
+    }
+
+    .search button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .weather{
+        margin: 24px 0 0 0;
+        display: none;
+        flex-direction: column;
+    }
+    .city-details{
+        margin: -48px 0 0 0;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .weather h1 {
+        font-size: 48px;
+    }
+
+    .weather h2 {
+        font-size: 20px;
+    }
+    .metric-temp-details{
+        margin: 50px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 16px;
+    }
+    
+    .imperial-temp-details{
+        margin: 50px 0 0 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 16px;
+    }
+
+    .col img {
+        width: 32px;
+    }
+
+    .fa-compass,
+    .fa-gauge {
+        font-size: 32px;
+        width: 32px;
+    }
+
+    .humidity,
+    .wind,
+    .coordinates,
+    .pressure {
+        font-size: 24px;
+    }
+
+    .humidity-name,
+    .wind-name,
+    .coordinate-name,
+    .pressure-name {
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .search{
+        display: flex;
+        gap: 0px;
+    }
+
+    .search input {
+        min-width: 120px;
+        height: 30px;
+    }
+
+    .search button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .weather{
+        margin: 24px 0 0 0;
+        display: none;
+        flex-direction: column;
+    }
+    .city-details{
+        margin: -48px 0 0 0;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 12px;
+    }
+    .weather h1 {
+        font-size: 48px;
+    }
+
+    .weather h2 {
+        font-size: 20px;
+    }
+    .metric-temp-details{
+        margin: 50px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 16px;
+    }
+    
+    .imperial-temp-details{
+        margin: 50px 0 0 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 16px;
+    }
+
+    .col img {
+        width: 32px;
+    }
+
+    .fa-compass,
+    .fa-gauge {
+        font-size: 32px;
+        width: 32px;
+    }
+
+    .humidity,
+    .wind,
+    .coordinates,
+    .pressure {
+        font-size: 24px;
+    }
+
+    .humidity-name,
+    .wind-name,
+    .coordinate-name,
+    .pressure-name {
+        font-size: 24px;
+    }
+
+}

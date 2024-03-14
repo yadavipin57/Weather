@@ -39,6 +39,11 @@ body {
     height: 60px;
     font-size: 18px;
 }
+.fa-xmark{
+    position: absolute;
+    color: #717171;
+    right: 30%;
+}
 
 .search-button{
     border: none;
@@ -139,7 +144,7 @@ body {
     text-align: left;
 }
 
-.col img, .col .fa-compass, .fa-gauge{
+.col img, .fa-compass, .fa-gauge{
     margin: 0 10px 0 0;
     width: 40px;
 }

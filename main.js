@@ -23,13 +23,20 @@ const wind = document.querySelector('.wind')
 const coordinates = document.querySelector('.coordinates')
 const pressure = document.querySelector('.pressure')
 
+function currentTimeOfCity(longitude){
+    if(longitude >= 0 && longitude <= 7.5){
+        setInterval(() => {
+            const currentTime = new Date()
+            cityTime.innerHTML = `${currentTime.toDateString()} | Indian Standard Time : ${currentTime.toLocaleTimeString()}`
+        }, 1000);
+    }
+}
+currentTimeOfCity()
 
-setInterval(() => {
-    const currentTime = new Date()
-    cityTime.innerHTML = `${currentTime.toDateString()} | Indian Standard Time : ${currentTime.toLocaleTimeString()}`
-}, 1000);
-
-
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    checkWeather();
+});
 
 async function checkWeather() {
     const cityName = inputField.value
@@ -41,6 +48,9 @@ async function checkWeather() {
     } else {
 
         var data = await response.json();
+
+        const longitude = data.coord.lon
+        currentTimeOfCity(longitude)
 
         if (data.weather[0].main === 'Clouds') {
             weatherImg.src = `./images/clouds.png`
@@ -62,14 +72,31 @@ async function checkWeather() {
         city.innerHTML = data.name + ", " + data.sys.country
         humidity.innerHTML = data.main.humidity + `%`
         wind.innerHTML = data.wind.speed + ` km/h`
-        coordinates.innerHTML = data.coord.lon.toFixed(2) + 'E' + ' ' + data.coord.lat.toFixed(2) + 'N'
+
+        let lon = ''
+        let lat = ''
+
+        if (data.coord.lon > 0) {
+            lon = "E"
+        } else if (data.coord.lon < 0) {
+            lon = "W"
+            data.coord.lon = -data.coord.lon
+        }
+
+        if (data.coord.lat > 0) {
+            lat = "N"
+        } else if (data.coord.lat < 0) {
+            lat = "S"
+            data.coord.lat = -data.coord.lat
+        }
+
+        coordinates.innerHTML = data.coord.lon.toFixed(2) + `${lon}` + ' ' + data.coord.lat.toFixed(2) + `${lat}`
         pressure.innerHTML = data.main.pressure + ' ' + `mb`
 
         errorDiv.style.display = 'none'
         weather.style.display = 'flex'
 
         imperial.addEventListener('click', () => {
-            console.log(data)
             metricTemp.style.display = 'none'
             metricTempDetails.style.display = 'none'
 
@@ -77,13 +104,11 @@ async function checkWeather() {
             imperialTempDetails.style.display = 'flex'
 
         })
-        metricTempDetails.querySelector('.temp-1').innerHTML = `${Math.round(((9 * Number(data.main.feels_like)) / 5) + 32)}°F`
-        metricTempDetails.querySelector('.temp-2').innerHTML = `${Math.round(((9 * Number(data.main.temp_min)) / 5) + 32)}°F`
-        metricTempDetails.querySelector('.temp-3').innerHTML = `${Math.round(((9 * Number(data.main.temp_max)) / 5) + 32)}°F`
+        imperialTempDetails.querySelector('.temp-1').innerHTML = `${Math.round(((9 * Number(data.main.feels_like)) / 5) + 32)}°F`
+        imperialTempDetails.querySelector('.temp-2').innerHTML = `${Math.round(((9 * Number(data.main.temp_min)) / 5) + 32)}°F`
+        imperialTempDetails.querySelector('.temp-3').innerHTML = `${Math.round(((9 * Number(data.main.temp_max)) / 5) + 32)}°F`
 
         metric.addEventListener('click', () => {
-
-            console.log(data)
             imperialTemp.style.display = 'none'
             imperialTempDetails.style.display = 'none'
 
@@ -91,14 +116,9 @@ async function checkWeather() {
             metricTempDetails.style.display = 'flex'
         })
 
-        imperialTempDetails.querySelector('.temp-1').innerHTML = `${Math.round(data.main.feels_like)}°C`
-        imperialTempDetails.querySelector('.temp-2').innerHTML = `${Math.round(data.main.temp_min)}°C`
-        imperialTempDetails.querySelector('.temp-3').innerHTML = `${Math.round(data.main.temp_max)}°C`
+        metricTempDetails.querySelector('.temp-1').innerHTML = `${Math.round(data.main.feels_like)}°C`
+        metricTempDetails.querySelector('.temp-2').innerHTML = `${Math.round(data.main.temp_min)}°C`
+        metricTempDetails.querySelector('.temp-3').innerHTML = `${Math.round(data.main.temp_max)}°C`
 
     }
 }
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    checkWeather();
-});
