@@ -2,8 +2,10 @@ const apiKey = '98ad2f2a977e40544e9730c01523aa3e';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='
 // https://api.openweathermap.org/data/2.5/weather?units=imperial&q=Mumbai&appid=98ad2f2a977e40544e9730c01523aa3e
 
+const refresh = document.querySelector('.fa-refresh')
 const form = document.querySelector('form')
 const inputField = document.querySelector('.search-input')
+const deleteInputField = document.querySelector('.fa-xmark')
 const metric = document.querySelector('.metric')
 const imperial = document.querySelector('.imperial')
 const errorDiv = document.querySelector('.error')
@@ -122,3 +124,11 @@ async function checkWeather() {
 
     }
 }
+
+deleteInputField.addEventListener('click', ()=>{
+    inputField.value = ''
+})
+
+refresh.addEventListener('click', ()=>{
+    location.reload()
+})
